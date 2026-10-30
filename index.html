@@ -2,10 +2,7 @@
 <html lang="vi">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=0.1, maximum-scale=5.0, user-scalable=yes"
-    />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Tra cứu số thứ tự doanh nghiệp</title>
     <style>
       :root {
@@ -115,6 +112,7 @@
         padding: 14px;
         background: #fff;
       }
+
       .item.to-mau {
         font-weight: bold;
         font-style: italic;
@@ -122,13 +120,8 @@
         border: 2px solid #f59e0b;
         box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.16);
       }
-      .item.to-mau .num {
-        background: #f59e0b;
-        color: #ffffff;
-      }
-      .item.to-mau .name {
-        color: #b45309;
-      }
+      .item.to-mau .num { background: #f59e0b; color: #fff; }
+      .item.to-mau .name { color: #b45309; }
       .num {
         background: var(--brand2);
         color: var(--brand);
@@ -223,8 +216,8 @@
     <main class="wrap">
       <section class="card">
         <div class="hero">
-          <h1 style="text-align: center; color: rgb(94, 255, 0); font-size: 20">
-            Tra cứu số thứ tự doanh nghiệp 30.10.2026
+          <h1 style="text-align: center; color: rgb(94, 255, 0); font-size: 40">
+            Tra cứu số thứ tự doanh nghiệp 30.9.2026
           </h1>
           <p>
             Nhập tên đầy đủ hoặc một phần tên doanh nghiệp. Hệ thống hỗ trợ tìm
@@ -244,7 +237,7 @@
               ×
             </button>
           </div>
-          <p class="hint">Danh sách gồm 204 doanh nghiệp.</p>
+          <p class="hint">Danh sách gồm 205 doanh nghiệp.</p>
         </div>
         <div id="status" class="status" aria-live="polite">
           Nhập ít nhất 1 ký tự để tìm kiếm.
@@ -254,533 +247,29 @@
       <footer>ITPC - Phòng dịch vụ và hỗ trợ doanh nghiệp</footer>
     </main>
     <script>
-      const DATA = [
-        {
-          stt: 1,
-          ten: "5S",
-          dayDu: "CÔNG TY CỔ PHẦN TMDV VÀ CHO THUÊ VĂN PHÒNG",
-        },
-        { stt: 2, ten: "5T", dayDu: "CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ" },
-        {
-          stt: 3,
-          ten: "Á CHÂU (ACPC)",
-          dayDu: "CÔNG TY TNHH MỘT THÀNH VIÊN TƯ VẤN VÀ XÚC TIẾN",
-        },
-        {
-          stt: 4,
-          ten: "Á CHÂU (VN) TẠI BÌNH DƯƠNG",
-          dayDu: "CHI NHÁNH CÔNG TY TNHH DINH DƯỠNG",
-        },
-        {
-          stt: 5,
-          ten: "AEON FANTASY VIỆT NAM",
-          dayDu: "CÔNG TY TRÁCH NHIỆM HỮU HẠN",
-        },
-        { stt: 6, ten: "AIC VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        { stt: 7, ten: "AK101 KIM NGỌC MÃN ĐƯỜNG", dayDu: "CÔNG TY CỔ PHẦN" },
-        { stt: 8, ten: "AN GIA", dayDu: "CÔNG TY CỔ PHẦN NĂNG LƯỢNG XANH" },
-        { stt: 9, ten: "AN PHƯỚC", dayDu: "CÔNG TY TNHH MAY THÊU GIÀY" },
-        { stt: 10, ten: "AN TÂM", dayDu: "CÔNG TY TNHH DƯỢC PHẨM VÀ Y KHOA" },
-        { stt: 11, ten: "ATIM", dayDu: "CÔNG TY LUẬT TRÁCH NHIỆM HỮU HẠN" },
-        {
-          stt: 12,
-          ten: "ATSUMI & SAKAI VIỆT NAM",
-          dayDu: "CÔNG TY LUẬT TRÁCH NHIỆM HỮU HẠN",
-        },
-        { stt: 13, ten: "AVELCO VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 14,
-          ten: "AVERNA VIỆT NAM",
-          dayDu: "CÔNG TY TRÁCH NHIỆM HỮU HẠN",
-        },
-        {
-          stt: 15,
-          ten: "B.T.Y",
-          dayDu: "CÔNG TY LUẬT TNHH MỘT THÀNH VIÊN TƯ VẤN DOANH NGHIỆP",
-        },
-        { stt: 16, ten: "BẢO VỆ BÌNH AN", dayDu: "CÔNG TY TNHH TM DV" },
-        { stt: 17, ten: "BẢY PHÚ QUỐC", dayDu: "CÔNG TY TNHH NƯỚC MẮM" },
-        {
-          stt: 18,
-          ten: "BECAMEX - CTCP",
-          dayDu: "TẬP ĐOÀN ĐẦU TƯ VÀ PHÁT TRIỂN CÔNG NGHIỆP",
-        },
-        {
-          stt: 19,
-          ten: "BẾN THÀNH",
-          dayDu: "TỔNG CÔNG TY BẾN THÀNH - TRÁCH NHIỆM HỮU HẠN MỘT THÀNH VIÊN",
-        },
-        { stt: 20, ten: "BESPIN GLOBAL VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        { stt: 21, ten: "BIC JAPAN", dayDu: "CÔNG TY TNHH" },
-        { stt: 22, ten: "BIỂN PACIFIC", dayDu: "CÔNG TY TNHH" },
-        { stt: 23, ten: "BIGACO", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 24,
-          ten: "BRITISH COUNCIL (VIỆT NAM) - CHI NHÁNH TP.HCM.",
-          dayDu: "CÔNG TY TNHH",
-        },
-        {
-          stt: 25,
-          ten: "BUÔN MÊ",
-          dayDu: "CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI CÀ PHÊ",
-        },
-        { stt: 26, ten: "CAINVER", dayDu: "CÔNG TY TNHH" },
-        { stt: 27, ten: "CBRE (VIỆT NAM)", dayDu: "CÔNG TY TNHH" },
-        { stt: 28, ten: "CDLAF", dayDu: "Công Ty Luật TNHH" },
-        {
-          stt: 29,
-          ten: "CHARMING TRIM & PACKAGING (VN)",
-          dayDu: "CÔNG TY TNHH",
-        },
-        { stt: 30, ten: "CHEMIPAZ VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        { stt: 31, ten: "CHENG LOONG BÌNH DƯƠNG PAPER", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 32,
-          ten: "CHINA STEEL & NIPPON STEEL VIỆT NAM",
-          dayDu: "CÔNG TY CỔ PHẦN",
-          tomau: true,
-        },
-        { stt: 33, ten: "CHORI VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        { stt: 34, ten: "CLP (VIỆT NAM)", dayDu: "CÔNG TY TNHH CÔNG NGHIỆP" },
-        {
-          stt: 35,
-          ten: "CNC VIỆT NAM",
-          dayDu: "CÔNG TY LUẬT TRÁCH NHIỆM HỮU HẠN",
-        },
-        { stt: 36, ten: "CỔ PHẦN Á CHÂU", dayDu: "NGÂN HÀNG THƯƠNG MẠI" },
-        { stt: 37, ten: "COCO VIỆT NAM", dayDu: "CÔNG TY TNHH", Tomau: true },
-        {
-          stt: 38,
-          ten: "CÔNG THƯƠNG VIỆT NAM- CHI NHÁNH TP.HỒ CHÍ MINH VIETINBANK",
-          dayDu:
-            "NGÂN HÀNG THƯƠNG MẠI CỔ PHẦN CÔNG THƯƠNG VIỆT NAM- CHI NHÁNH TP.HỒ CHÍ MINH",
-        },
-        { stt: 39, ten: "CÚC TÂY RETAIL", dayDu: "CÔNG TY TNHH" },
-        { stt: 40, ten: "DH FOODS", dayDu: "CÔNG TY CỔ PHẦN" },
-        { stt: 41, ten: "DI SẢN XÃ HỘI GHSISA", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 42,
-          ten: "DIAGNOSIS F",
-          dayDu: "CÔNG TY TNHH SẢN XUẤT CÔNG NGHỆ SINH HỌC",
-        },
-        { stt: 43, ten: "DIPLOMAT", dayDu: "CÔNG TY CỔ PHẦN QUỐC TẾ" },
-        {
-          stt: 44,
-          ten: "ĐÔNG XUYÊN",
-          dayDu: "CÔNG TY CỔ PHẦN CẢNG",
-          tomau: true,
-        },
-        { stt: 45, ten: "DREAM VIET EDUCATION", dayDu: "CÔNG TY CỔ PHẦN" },
-        { stt: 46, ten: "DSEA LEGAL", dayDu: "CÔNG TY TNHH", tomau: true },
-        { stt: 47, ten: "DYB VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        { stt: 48, ten: "DYM VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        { stt: 49, ten: "EINS VINA", dayDu: "CÔNG TY TNHH" },
-        { stt: 50, ten: "FIOP", dayDu: "CÔNG TY CỔ PHẦN", tomau: true },
-        { stt: 51, ten: "FOSACO", dayDu: "CÔNG TY TNHH" },
-        { stt: 52, ten: "GIÁO DỤC IDP (VIỆT NAM)", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 53,
-          ten: "GIÁO DỤC QUỐC TẾ ÚC ACG",
-          dayDu: "CÔNG TY TNHH DỊCH VỤ",
-        },
-        {
-          stt: 54,
-          ten: "GIAO THÔNG T & T",
-          dayDu: "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ VẬN TẢI XÂY DỰNG",
-        },
-        {
-          stt: 55,
-          ten: "GILIMEX BẮC GIANG",
-          dayDu: "CÔNG TY CỔ PHẦN KHU CÔNG NGHIỆP",
-        },
-        { stt: 56, ten: "GLODIVAL", dayDu: "CÔNG TY TNHH" },
-        { stt: 57, ten: "GONSA", dayDu: "CÔNG TY CỔ PHẦN" },
-        { stt: 58, ten: "GRAND PALACE", dayDu: "KHÁCH SẠN" },
-        { stt: 59, ten: "GULF ENERGY (VIỆT NAM)", dayDu: "CÔNG TY TNHH" },
-        { stt: 60, ten: "HARMONY HOTEL", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 61,
-          ten: "HIỆP HỘI DOANH NGHIỆP MALAYSIA TẠI VIỆT NAM",
-          dayDu: "HIỆP HỘI DOANH NGHIỆP ",
-        },
-        {
-          stt: 62,
-          ten: "HIỆP PHƯỚC",
-          dayDu: "CÔNG TY CỔ PHẦN KHU CÔNG NGHIỆP",
-        },
-        {
-          stt: 63,
-          ten: "HÒA BÌNH",
-          dayDu: "CÔNG TY CỔ PHẦN TẬP ĐOÀN XÂY DỰNG",
-        },
-        { stt: 64, ten: "HOÀNG GIA", dayDu: "CÔNG TY TNHH THƯƠNG MẠI" },
-        { stt: 65, ten: "HOÀNG PHÚC SƠN", dayDu: "CÔNG TY LUẬT TNHH" },
-        { stt: 66, ten: "HOÀNG TÂM", dayDu: "CÔNG TY TNHH THIẾT BỊ INOX" },
-        { stt: 67, ten: "HỘI SẢN PHẨM NÔNG NGHIỆP SẠCH TPHCM", dayDu: "HỘI" },
-        {
-          stt: 68,
-          ten: "HỘI VIỆT MỸ",
-          dayDu: "CÔNG TY CỔ PHẦN QUỐC TẾ ANH VĂN",
-        },
-        { stt: 69, ten: "HOMM", dayDu: "CÔNG TY TNHH" },
-        { stt: 70, ten: "HỢP DANH LA", dayDu: "CÔNG TY LUẬT HỢP DANH" },
-        { stt: 71, ten: "HTAS", dayDu: "CÔNG TY TNHH DỊCH VỤ KẾ TOÁN THUẾ" },
-        {
-          stt: 72,
-          ten: "HUTECH",
-          dayDu: "CÔNG TY CP ĐẦU TƯ PHÁT TRIỂN GIÁO DỤC",
-        },
-        { stt: 73, ten: "I HOA CHEMICAL", dayDu: "CÔNG TY TNHH" },
-        { stt: 74, ten: "IDICO - CTCP", dayDu: "TỔNG CÔNG TY" },
-        { stt: 75, ten: "INVESTMENT INSIGHTS", dayDu: "CÔNG TY TNHH" },
-        { stt: 76, ten: "IPC", dayDu: "CÔNG TY CỔ PHẦN XÂY DỰNG CÔNG TRÌNH" },
-        { stt: 77, ten: "IRISES", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 78,
-          ten: "ITAX",
-          dayDu: "CÔNG TY TNHH TƯ VẤN QUẢN LÝ DOANH NGHIỆP",
-        },
-        {
-          stt: 79,
-          ten: "J&V (solution)",
-          dayDu: "CÔNG TY TNHH MỘT THÀNH VIÊN GIẢI PHÁP",
-          tomau: true,
-        },
-        { stt: 80, ten: "JAKOB SÀI GÒN", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 81,
-          ten: "JAPFA COMFEED VIỆT NAM TẠI THÀNH PHỐ HỒ CHÍ MINH",
-          dayDu: "VĂN PHÒNG ĐẠI DIỆN CÔNG TY TRÁCH NHIỆM HỮU HẠN",
-          tomau: true,
-        },
-        { stt: 82, ten: "JEBSEN & JESSEN (VIETNAM)", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 83,
-          ten: "JTI (VIETNAM) PTE LTD TẠI THÀNH PHỐ HỒ CHÍ MINH",
-          dayDu:
-            "VĂN PHÒNG ĐẠI DIỆN JTI (VIETNAM) PTE LTD TẠI THÀNH PHỐ HỒ CHÍ MINH",
-        },
-        { stt: 84, ten: "JUNIUS INTERNATIONAL", dayDu: "CÔNG TY TNHH" },
-        { stt: 85, ten: "KHH ", dayDu: "HOLDINGS LIMITED ENGLAND" },
-        { stt: 86, ten: "KHƠI NGUỒN SÁNG TẠO", dayDu: "CÔNG TY TNHH" },
-        { stt: 87, ten: "KIỀU HỐI ĐÔNG Á", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 88,
-          ten: "KIM CƯƠNG",
-          dayDu: "CÔNG TY CỔ PHẦN SẢN XUẤT THƯƠNG MẠI DỊCH VỤ",
-        },
-        { stt: 89, ten: "KIN LIVING MANAGEMENT", dayDu: "CÔNG TY TNHH" },
-        { stt: 90, ten: "KINH TẾ - LUẬT", dayDu: "TRƯỜNG ĐẠI HỌC" },
-        { stt: 91, ten: "KLU SÀI GÒN", dayDu: "CÔNG TY TNHH" },
-        { stt: 92, ten: "KRESTON IFA", dayDu: "CÔNG TY TNHH KIỂM TOÁN TƯ VẤN" },
-        { stt: 93, ten: "LC FOODS", dayDu: "CÔNG TY CỔ PHẦN" },
-        {
-          stt: 94,
-          ten: "LECIEN (VIỆT NAM)",
-          dayDu: "CÔNG TY CÔNG TY TRÁCH NHIỆM HỮU HẠN",
-          tomau: true,
-        },
-        { stt: 95, ten: "LEGGETT & PLATT (BÀU BÀNG)", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 96,
-          ten: "LIÊN MINH BÁCH KHOA",
-          dayDu: "CÔNG TY CỔ PHẦN GIÁO DỤC",
-        },
-        { stt: 97, ten: "LIPOCI", dayDu: "CÔNG TY CỔ PHẦN" },
-        { stt: 98, ten: "LONG BÌNH", dayDu: "CÔNG TY TNHH CHĂN NUÔI" },
-        { stt: 99, ten: "LONG HUYỀN VŨ", dayDu: "CÔNG TY TNHH" },
-        { stt: 100, ten: "LONG TRƯỜNG", dayDu: "HỘI DOANH NGHIỆP PHƯỜNG" },
-        {
-          stt: 101,
-          ten: "MAI ĐĂNG KHANG",
-          dayDu: "CÔNG TY LUẬT TRÁCH NHIỆM HỮU HẠN MỘT THÀNH VIÊN",
-        },
-        { stt: 102, ten: "MAISON ROSE GROUP", dayDu: "CÔNG TY TNHH" },
-        { stt: 103, ten: "MAN", dayDu: "CÔNG TY TNHH QUẢN LÝ TƯ VẤN THUẾ" },
-        { stt: 104, ten: "MARKET STRATEGY CONSULTING", dayDu: "CÔNG TY TNHH" },
-        { stt: 105, ten: "MASG EDUCATION", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 106,
-          ten: "MEDNOVUM",
-          dayDu: "CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ Y TẾ",
-        },
-        { stt: 107, ten: "MEINAN (VIỆT NAM)", dayDu: "CÔNG TY TNHH" },
-        { stt: 108, ten: "MEKONG DELTA CO.OP", dayDu: "CÔNG TY TNHH" },
-        { stt: 109, ten: "METKRAFT", dayDu: "CÔNG TY TRÁCH NHIỆM HỮU HẠN" },
-        { stt: 110, ten: "MINAMI SHOTEN CAD VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 111,
-          ten: "MINH NGHỆ",
-          dayDu: "CÔNG TY TNHH CÔNG NGHIỆP - THƯƠNG MẠI",
-        },
-        {
-          stt: 112,
-          ten: "MINH QUÂN",
-          dayDu: "CÔNG TY TNHH DỊCH VỤ TƯ VẤN VÀ ĐÀO TẠO",
-        },
-        { stt: 113, ten: "MINH THIỆN", dayDu: "CÔNG TY LUẬT TNHH" },
-        { stt: 114, ten: "MOL SHIPPING (VIỆT NAM)", dayDu: "CÔNG TY TNHH" },
-        { stt: 115, ten: "MỸ PHẨM SÀI GÒN", dayDu: "CÔNG TY CỔ PHẦN" },
-        { stt: 116, ten: "MỸ TRINH VÂN", dayDu: "CÔNG TY TNHH QUẢNG CÁO" },
-        { stt: 117, ten: "MZ VIỆT NAM", dayDu: "CÔNG TY TNHH THƯƠNG MẠI" },
-        {
-          stt: 118,
-          ten: "NANOGEN",
-          dayDu: "CÔNG TY CỔ PHẦN CÔNG NGHỆ SINH HỌC DƯỢC",
-        },
-        {
-          stt: 119,
-          ten: "NEDSPICE VIỆT NAM",
-          dayDu: "CÔNG TY TRÁCH NHIỆM HỮU HẠN CHẾ BIẾN GIA VỊ",
-        },
-        { stt: 120, ten: "NGHĨA PHÁT", dayDu: "CÔNG TY TNHH TIẾP VẬN" },
-        { stt: 121, ten: "NGHĨA PHÁT", dayDu: "CÔNG TY TNHH DỊCH VỤ NHÂN SỰ" },
-        { stt: 122, ten: "NGÔ THANH THANH", dayDu: "CÔNG TY TNHH" },
-        { stt: 123, ten: "NGỌC PHƯỚC", dayDu: "CÔNG TY CỔ PHẦN MAY IN LỤA" },
-        {
-          stt: 124,
-          ten: "NGUYỄN NHÀN",
-          dayDu: "CÔNG TY LUẬT TRÁCH NHIỆM HỮU HẠN",
-        },
-        { stt: 125, ten: "NHM VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        { stt: 126, ten: "NI HAO", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 127,
-          ten: "NIDEC INSTRUMENTS (VIỆT NAM)",
-          dayDu: "CÔNG TY TNHH",
-        },
-        { stt: 128, ten: "NIPPON MIRAI", dayDu: "CÔNG TY TRÁCH NHIỆM HỮU HẠN" },
-        { stt: 129, ten: "NIPRO VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 130,
-          ten: "NISHIMURA & ASAHI VIỆT NAM TẠI TP HỒ CHÍ MINH",
-          dayDu: "CHI NHÁNH CÔNG TY LUẬT TNHH",
-        },
-        {
-          stt: 131,
-          ten: "NITTO-FUJI INTERNATIONAL VIỆT NAM",
-          dayDu: "CÔNG TY TNHH",
-        },
-        { stt: 132, ten: "OKB VIỆT NAM", dayDu: "CÔNG TY TNHH TƯ VẤN" },
-        {
-          stt: 133,
-          ten: "OLYMPIA",
-          dayDu: "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ DU LỊCH",
-        },
-        {
-          stt: 134,
-          ten: "OLYMPUS VIỆT NAM",
-          dayDu: "CÔNG TY TRÁCH NHIỆM HỮU HẠN",
-        },
-        {
-          stt: 135,
-          ten: "ONE ASIA LAWYERS VIỆT NAM",
-          dayDu: "CÔNG TY LUẬT TRÁCH NHIỆM HỮU HẠN",
-        },
-        {
-          stt: 136,
-          ten: "ORGALIFE",
-          dayDu: "CÔNG TY TNHH KHOA HỌC DINH DƯỠNG",
-        },
-        { stt: 137, ten: "PGT HOLDINGS", dayDu: "CÔNG TY CỔ PHẦN" },
-        {
-          stt: 138,
-          ten: "PHAN THÀNH",
-          dayDu: "CÔNG TY TNHH THƯƠNG MẠI - DỊCH VỤ",
-        },
-        {
-          stt: 139,
-          ten: "PHÚ LỘC",
-          dayDu: "CÔNG TY TNHH THƯƠNG MẠI TRANG TRÍ NỘI THẤT",
-        },
-        { stt: 140, ten: "PHÚ NGÂN", dayDu: "CÔNG TY TRÁCH NHIỆM HỮU HẠN" },
-        { stt: 141, ten: "PHÚC HỌC", dayDu: "CÔNG TY TNHH" },
-        { stt: 142, ten: "PHƯƠNG MINH HANDMADE", dayDu: "CÔNG TY TNHH" },
-        { stt: 143, ten: "PRO ACTIVE GLOBAL VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 144,
-          ten: "PWC VIỆT NAM",
-          dayDu: "CÔNG TY LUẬT TRÁCH NHIỆM HỮU HẠN",
-        },
-        {
-          stt: 145,
-          ten: "QUALIMEALS",
-          dayDu: "CÔNG TY TNHH KHOA HỌC VÀ CHẤT LƯỢNG THỰC PHẨM",
-        },
-        {
-          stt: 146,
-          ten: "QUỐC TẾ",
-          dayDu: "CÔNG TY TNHH TƯ VẤN VÀ PHÁT TRIỂN GIÁO DỤC",
-        },
-        {
-          stt: 147,
-          ten: "QUỐC TẾ - CHI NHÁNH THÀNH PHỐ HỒ CHÍ MINH",
-          dayDu: "CÔNG TY TNHH KIỂM TOÁN VÀ ĐỊNH GIÁ",
-        },
-        {
-          stt: 148,
-          ten: "QUÝ PHƯƠNG BẮC",
-          dayDu: "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ KHÁCH SẠN",
-        },
-        { stt: 149, ten: "RICH FAME", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 150,
-          ten: "RODD AND GUNN NEW ZEALAND LIMITED TẠI THÀNH PHỐ HỒ CHÍ MINH",
-          dayDu: "VĂN PHÒNG ĐẠI DIỆN",
-        },
-        { stt: 151, ten: "SACOM - CHÍP SÁNG", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 152,
-          ten: "SÀI GÒN",
-          dayDu: "CÔNG TY TNHH MỘT THÀNH VIÊN ĐÀO TẠO VÀ TƯ VẤN ĐẦU TƯ",
-        },
-        { stt: 153, ten: "SAIGON PEARL", dayDu: "CÔNG TY LUẬT TNHH" },
-        { stt: 154, ten: "SAMBU FINE VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 155,
-          ten: "SANDEN VIỆT NAM",
-          dayDu: "CÔNG TY TNHH TRUNG TÂM KỸ THUẬT",
-        },
-        { stt: 156, ten: "SÁNG TẠO", dayDu: "CÔNG TY TNHH ANH NGỮ" },
-        {
-          stt: 157,
-          ten: "SEPZONE - LINH TRUNG (VIỆT NAM)",
-          dayDu: "CÔNG TY TNHH",
-        },
-        { stt: 158, ten: "SERENITY HOLDING VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        { stt: 159, ten: "SHINGO", dayDu: "CÔNG TY CỔ PHẦN" },
-        { stt: 160, ten: "SHINPOONG DAEWOO", dayDu: "CÔNG TY TNHH DƯỢC PHẨM" },
-        {
-          stt: 161,
-          ten: "SHISEIDO VIỆT NAM",
-          dayDu: "CÔNG TY TRÁCH NHIỆM HỮU HẠN MỸ PHẨM",
-        },
-        { stt: 162, ten: "SMC TÂN TẠO", dayDu: "CÔNG TY TNHH MỘT THÀNH VIÊN" },
-        { stt: 163, ten: "SONADEZI CHÂU ĐỨC", dayDu: "CÔNG TY CỔ PHẦN" },
-        { stt: 164, ten: "SÔNG NILE", dayDu: "CÔNG TY TNHH", tomau: true },
-        { stt: 165, ten: "SONY ELECTRONICS VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 166,
-          ten: "SURFING",
-          dayDu: "CÔNG TY CỔ PHẦN ĐẦU TƯ",
-          tomau: true,
-        },
-        {
-          stt: 167,
-          ten: "T- BUSINESS",
-          dayDu: "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ",
-        },
-        { stt: 168, ten: "TAE SUNG", dayDu: "CÔNG TY" },
-        { stt: 169, ten: "TDMT", dayDu: "CÔNG TY LUẬT TNHH MTV" },
-        {
-          stt: 170,
-          ten: "THÁI ANH",
-          dayDu: "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ DU LỊCH",
-        },
-        { stt: 171, ten: "THÁI BÌNH", dayDu: "CÔNG TY CỔ PHẦN ĐẦU TƯ" },
-        { stt: 172, ten: "THANH BÌNH PHÚ MỸ", dayDu: "CÔNG TY CỔ PHẦN" },
-        {
-          stt: 173,
-          ten: "THANH HÙNG",
-          dayDu: "CÔNG TY TNHH ĐẦU TƯ XUẤT NHẬP KHẨU",
-        },
-        {
-          stt: 174,
-          ten: "THÀNH PHỐ HỒ CHÍ MINH",
-          dayDu: "NGÂN HÀNG THƯƠNG MẠI CỔ PHẦN PHÁT TRIỂN",
-        },
-        { stt: 175, ten: "THÍCH VÀ CÁC CỘNG SỰ", dayDu: "CÔNG TY LUẬT TNHH" },
-        {
-          stt: 176,
-          ten: "THIÊN ÂN",
-          dayDu: "CÔNG TY CỔ PHẦN SẢN XUẤT XUẤT NHẬP KHẨU TOÀN CẦU",
-        },
-        { stt: 177, ten: "THỊNH PHÁT", dayDu: "CÔNG TY TNHH CƠ KHÍ CHÍNH XÁC" },
-        {
-          stt: 178,
-          ten: "THỐNG NHẤT",
-          dayDu: "TRUNG TÂM GIÁO DỤC NGHỀ NGHIỆP LÁI XE",
-        },
-        { stt: 179, ten: "TIÊN", dayDu: "NGUYỄN THUỶ" },
-        { stt: 180, ten: "TIẾN LỰC", dayDu: "CÔNG TY TNHH ĐẦU TƯ" },
-        { stt: 181, ten: "TLT", dayDu: "CÔNG TY CỔ PHẦN TẬP ĐOÀN CÔNG NGHỆ" },
-        {
-          stt: 182,
-          ten: "TNN",
-          dayDu: "CÔNG TY CỔ PHẦN DỊCH VỤ GIAO NHẬN HÀNG HOÁ",
-        },
-        { stt: 183, ten: "TOA THE OUTSOURCING AGENCY", dayDu: "CÔNG TY TNHH" },
-        { stt: 184, ten: "TRÁCH NHIỆM HỮU HẠN GVW", dayDu: "CÔNG TY LUẬT" },
-        { stt: 185, ten: "TRÂM NGUYỄN HOÀNG", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 186,
-          ten: "TRẠNG NGUYÊN",
-          dayDu: "CÔNG TY TNHH ĐẦU TƯ PHÁT TRIỂN GIÁO DỤC",
-        },
-        {
-          stt: 187,
-          ten: "TƯỜNG & CỘNG SỰ",
-          dayDu: "CÔNG TY LUẬT TRÁCH NHIỆM HỮU HẠN",
-        },
-        { stt: 188, ten: "TUYỂN DỤNG NHÂN TÀI", dayDu: "CÔNG TY CỔ PHẦN" },
-        {
-          stt: 189,
-          ten: "UNITED OVERSEAS BANK (VIỆT NAM) - CHI NHÁNH SUNWAH",
-          dayDu: "NGÂN HÀNG TNHH MỘT THÀNH VIÊN",
-        },
-        { stt: 190, ten: "URC VIỆT NAM", dayDu: "CÔNG TY TNHH" },
-        { stt: 191, ten: "VCI LEGAL", dayDu: "CÔNG TY LUẬT TNHH MTV" },
-        {
-          stt: 192,
-          ten: "VIỄN ĐÔNG VIỆT NAM",
-          dayDu: "CÔNG TY TRÁCH NHIỆM HỮU HẠN Y TẾ",
-        },
-        { stt: 193, ten: "VIỆT GIAO", dayDu: "TRƯỜNG TRUNG CẤP" },
-        {
-          stt: 194,
-          ten: "VIỆT MEKONG",
-          dayDu: "CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI CƠ KHÍ",
-        },
-        {
-          stt: 195,
-          ten: "VIỆT MỸ",
-          dayDu: "CÔNG TY TNHH SẢN XUẤT THƯƠNG MẠI MAY MẶC",
-        },
-        {
-          stt: 196,
-          ten: "VIỆT NAM",
-          dayDu: "CÔNG TY TNHH TƯ VẤN ĐẦU TƯ",
-          tomau: true,
-        },
-        { stt: 197, ten: "VIỆT NAM SAMHO", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 198,
-          ten: "VIỆT NAM-SINGAPORE",
-          dayDu: "CÔNG TY LIÊN DOANH TNHH KHU CÔNG NGHIỆP",
-          tomau: true,
-        },
-        { stt: 199, ten: "VIỆT ÚC", dayDu: "CÔNG TY CỔ PHẦN GIÁO DỤC QUỐC TẾ" },
-        {
-          stt: 200,
-          ten: "VIETTOP",
-          dayDu: "CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ KỸ THUẬT",
-        },
-        { stt: 201, ten: "VTNN PHÚC SANG", dayDu: "CÔNG TY TNHH" },
-        { stt: 202, ten: "VTOC", dayDu: "CÔNG TY CỔ PHẦN" },
-        { stt: 203, ten: "VŨ VIỆT", dayDu: "CÔNG TY TNHH MỘT THÀNH VIÊN" },
-        { stt: 204, ten: "WAN LI HANG (VIỆT NAM)", dayDu: "CÔNG TY TNHH" },
-        {
-          stt: 205,
-          ten: "WOORI VIỆT NAM - CHI NHÁNH PHÚ MỸ HƯNG",
-          dayDu: "NGÂN HÀNG TNHH MỘT THÀNH VIÊN",
-          tomau: true,
-        },
-      ];
-      const q = document.getElementById("q");
-      const results = document.getElementById("results");
-      const status = document.getElementById("status");
-      const clear = document.getElementById("clear");
+      let DATA = [];
+      async function loadData() {
+        try {
+          const r = await fetch("data.json");
 
+          if (!r.ok) {
+            throw new Error("Không tải được data.json");
+          }
+
+          DATA = await r.json();
+
+          document.querySelector(".hint").textContent = `Danh sách gồm ${DATA.length} doanh nghiệp.`;
+          console.log("Loaded:", DATA.length);
+        } catch (err) {
+          console.error(err);
+          status.textContent = err.message;
+        }
+      }
+
+      const q = document.getElementById("q"),
+        results = document.getElementById("results"),
+        status = document.getElementById("status"),
+        clear = document.getElementById("clear");
       const norm = (s) =>
         (s || "")
           .normalize("NFD")
@@ -790,7 +279,6 @@
           .toLowerCase()
           .replace(/\s+/g, " ")
           .trim();
-
       const esc = (s) =>
         String(s).replace(
           /[&<>"']/g,
@@ -803,78 +291,46 @@
               "'": "&#039;",
             })[c],
         );
-
       function render() {
-        const raw = q.value.trim();
-        const needle = norm(raw);
-
+        const raw = q.value.trim(),
+          needle = norm(raw);
         results.innerHTML = "";
-
         if (!needle) {
           status.textContent = "Nhập ít nhất 1 ký tự để tìm kiếm.";
           return;
         }
-
         const words = needle.split(" ").filter(Boolean);
-
         const found = DATA.filter((x) => {
           const searchText = norm(`${x.dayDu} ${x.ten}`);
           return words.every((w) => searchText.includes(w));
         }).slice(0, 60);
-
         status.textContent = found.length
-          ? `Tìm thấy ${found.length} kết quả${
-              found.length === 60 ? " đầu tiên" : ""
-            }.`
+          ? `Tìm thấy ${found.length} kết quả${found.length === 60 ? " đầu tiên" : ""}.`
           : "Không tìm thấy doanh nghiệp phù hợp.";
-
         if (!found.length) {
-          results.innerHTML = `
-                  <div class="empty">
-                    Thử nhập tên ngắn hơn hoặc bỏ các từ như “Công ty”,
-                    “TNHH”, “Cổ phần”, hoặc doanh nghiệp không có trong danh sách.
-                  </div>
-                `;
+          results.innerHTML =
+            '<div class="empty">Thử nhập tên ngắn hơn hoặc bỏ các từ như “Công ty”, “TNHH”, “Cổ phần”, hoặc doanh nghiệp không có trong danh sách </div>';
           return;
         }
-
         results.innerHTML = found
           .map(
-            (x) => `
-                    <article class="item${x.tomau ? " to-mau" : ""}">
-                      <div class="num">
-                        <small>STT</small>
-                        ${esc(x.stt)}
-                      </div>
-
-                      <div>
-                        <div class="name">
-                          ${esc(x.dayDu)} ${esc(x.ten)}
-                        </div>
-
-                        <div class="full">
-                          Loại hình doanh nghiệp: ${esc(x.dayDu)}
-                        </div>
-
-                        <div class="full">
-                          Tên: ${esc(x.ten)}
-                        </div>
-                      </div>
-                    </article>
-                  `,
+            (x) =>
+              `<article class="item${x.tomau || x.Tomau ? " to-mau" : ""}"><div class="num"><small>STT</small>${esc(x.stt)}</div><div><div class="name">${esc(x.dayDu)} ${esc(x.ten)}</div><div class="full">${esc(x.dayDu)} ${esc(x.ten)}</div></div></article>`,
           )
           .join("");
       }
-
       q.addEventListener("input", render);
-
       clear.addEventListener("click", () => {
         q.value = "";
         render();
         q.focus();
       });
-
-      render();
+      async function init() {
+        status.textContent = "Đang tải dữ liệu...";
+        await loadData();
+        render();
+      }
+      init();
     </script>
   </body>
 </html>
