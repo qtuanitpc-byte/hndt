@@ -301,7 +301,7 @@
         }
         const words = needle.split(" ").filter(Boolean);
         const found = DATA.filter((x) => {
-          const searchText = norm(`${x.dayDu} ${x.ten}`);
+          const searchText = norm(`${x.Daydu} ${x.ten}`);
           return words.every((w) => searchText.includes(w));
         }).slice(0, 60);
         status.textContent = found.length
@@ -315,7 +315,7 @@
         results.innerHTML = found
           .map(
             (x) =>
-              `<article class="item${x.tomau || x.Tomau ? " to-mau" : ""}"><div class="num"><small>STT</small>${esc(x.stt)}</div><div><div class="name">${esc(x.dayDu)} ${esc(x.ten)}</div><div class="full">${esc(x.dayDu)} ${esc(x.ten)}</div></div></article>`,
+              `<article class="item${x.tomau || x.Tomau ? " to-mau" : ""}"><div class="num"><small>STT</small>${esc(x.stt)}</div><div><div class="name">${esc(x.Daydu)} ${esc(x.ten)}</div><div class="full">${esc(x.Daydu)} ${esc(x.ten)}</div></div></article>`,
           )
           .join("");
       }
